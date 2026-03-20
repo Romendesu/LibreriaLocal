@@ -1,0 +1,19 @@
+{% extends "base_generic.html"%}
+{% block content %}
+<h1>Local Library Home</h1>
+<p> 
+    Bienvenido a la libreria local, un sitio web básico desarrollado con Django
+    como base para aprender Django.
+</p>
+<h2> Contenido añadido de forma dinámica</h2>
+<p> La libreria contiene los siguientes estadísticos:</p>
+<ul>
+    <li><strong>Libros:</strong> {{ num_books}}</li>
+    <li><strong>Copias:</strong> {{ num_instances}}</li>
+    <li><strong>Copias disponibles:</strong> {{ num_instances_avaiable}}</li>
+    <li><strong>Autores:</strong> {{ num_authors}}</li>
+    <li><strong>Géneros:</strong> {{ num_genres}}</li>
+</ul>
+
+<p>Has visitado esta página {{ num_visits }}{% if num_visits == 1 %} vez {% else %} veces{% endif %}.</p>
+{% endblock%}

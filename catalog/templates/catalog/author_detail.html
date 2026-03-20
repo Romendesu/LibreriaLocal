@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Author: {{ object.first_name }} {{ object.last_name }} </h1>
+<p>
+  {{ object.date_of_birth }} {% if object.date_of_death %}- {{ object.date_of_death }}{% endif %}
+</p>
+
+<div style="margin-left:20px;margin-top:20px">
+<h4>Books</h4>
+
+<dl>
+{% for book in object.book_set.all %}
+  <dt><a href="{% url 'book-detail' book.pk %}">{{ book.title }}</a> ({{ book.bookinstance_set.count }})</dt>
+  <dd>{{ book.summary }}</dd>
+{% empty %}
+  <p>This author has no books.</p>
+{% endfor %}
+</dl>
+
+</div>
+{% endblock %}
